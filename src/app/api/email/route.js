@@ -12,8 +12,8 @@ export async function GET(req) {
         port: 587,
         secure: false,
         auth: {
-            user: "baitulamin1900@gmail.com",
-            pass: "Rohan1900@1900#",
+            user: "eeee",
+            pass: "dddd#",
         },
         tls: { rejectUnauthorized: false,}    
     })
