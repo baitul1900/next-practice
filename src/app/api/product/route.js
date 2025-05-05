@@ -71,12 +71,14 @@ export async function PUT(req, res) {
 
 
 export async function DELETE(req, res) {
+    const cookies = req.cookies.get('Cookie_1');
     return NextResponse.json({
         message: 'Hello from the delete API',
         status: 200,
         data: {
             name: 'John Doe',
             age: 30,
+            cookie: cookies,
         },
     });
 }    
@@ -85,14 +87,13 @@ export async function DELETE(req, res) {
 
 export async function PATCH(req) {
     const headerList = headers();
-    const header = headerList.get('user-agent');
     return NextResponse.json({
         message: 'Hello from the API',
         status: 200,
         data: {
             name: 'John Doe',
             age: 30,
-            header: header,
+            header: (await headerList).get('token'),
         },
     });
 }
